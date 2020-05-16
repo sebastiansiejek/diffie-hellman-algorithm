@@ -1,7 +1,9 @@
+import sys
 from DH import DH
+from random import randint
 
-a = DH(23, 5).setPrivateKey(6)
-b = DH(23, 5).setPrivateKey(15)
+a = DH(sys.maxsize - 1, 5).setPrivateKey(randint(0, 99999))
+b = DH(sys.maxsize - 1, 5).setPrivateKey(randint(0, 88888))
 
 a.setForeignKey(b.sharedKey)
 b.setForeignKey(a.sharedKey)
